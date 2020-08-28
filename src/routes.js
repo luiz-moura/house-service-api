@@ -1,21 +1,9 @@
 import { Router } from 'express';
 
-import User from './app/models/User';
-// import Role from './app/models/Role';
+import UserController from './app/controllers/UserController';
 
 const routes = new Router();
 
-routes.get('/', async (request, response) => {
-  const user = await User.create({
-    name: 'Luiz Moura',
-    nickname: '🌀',
-    genre: 'senha',
-    status: 1,
-    email: 'luizhom@outlook.com',
-    password: '12345678',
-  });
-
-  response.json(user);
-});
+routes.post('/users', UserController.store);
 
 export default routes;
