@@ -23,6 +23,12 @@ class UserController {
       status,
     });
   }
+
+  async update(request, response) {
+    // console.log(request.userId);
+
+    return response.json({ ok: true });
+  }
 }
 
 export default new UserController();
