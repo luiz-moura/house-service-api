@@ -11,10 +11,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      nickname: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
       genre: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -22,6 +18,7 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: true,
       },
       password: {
         type: Sequelize.STRING,
