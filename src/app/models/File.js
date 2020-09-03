@@ -1,12 +1,11 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Role extends Model {
+class File extends Model {
   static init(sequelize) {
     super.init(
       {
         name: Sequelize.STRING,
-        display_name: Sequelize.STRING,
-        status: Sequelize.BOOLEAN,
+        path: Sequelize.STRING,
       },
       {
         sequelize,
@@ -17,4 +16,4 @@ class Role extends Model {
   }
 }
 
-export default Role;
+export default File;
