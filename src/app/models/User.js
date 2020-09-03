@@ -6,8 +6,9 @@ class User extends Model {
     super.init(
       {
         name: Sequelize.STRING,
-        email: Sequelize.STRING,
         genre: Sequelize.STRING,
+        provider: Sequelize.BOOLEAN,
+        email: Sequelize.STRING,
         password: Sequelize.STRING,
         status: Sequelize.BOOLEAN,
       },
@@ -26,7 +27,8 @@ class User extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
+    this.belongsTo(models.Role, { foreignKey: 'role_id', as: 'role' });
+    this.belongsTo(models.File, { foreignKey: 'avatar_id', as: 'avatar' });
   }
 
   checkPassword(password) {

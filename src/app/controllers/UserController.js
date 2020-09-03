@@ -23,9 +23,15 @@ class UserController {
       return response.status(400).json({ error: 'User already exists.' });
     }
 
-    const { id, name, nickname, genre, email, status } = await User.create(
-      request.body
-    );
+    const {
+      id,
+      name,
+      nickname,
+      genre,
+      provider,
+      email,
+      status,
+    } = await User.create(request.body);
 
     return response.json({
       id,
@@ -34,6 +40,7 @@ class UserController {
       email,
       genre,
       status,
+      provider,
     });
   }
 
@@ -74,7 +81,9 @@ class UserController {
       return response.status(401).json({ error: 'Password does not match.' });
     }
 
-    const { id, name, genre, status } = await user.update(request.body);
+    const { id, name, genre, status, provider } = await user.update(
+      request.body
+    );
 
     return response.json({
       id,
@@ -82,6 +91,7 @@ class UserController {
       email,
       genre,
       status,
+      provider,
     });
   }
 }
