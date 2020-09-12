@@ -15,6 +15,10 @@ class States extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.belongsTo(models.State, { foreignKey: 'state_id', as: 'state' });
+  }
 }
 
 export default States;
