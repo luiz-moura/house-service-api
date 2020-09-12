@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class States extends Model {
+class UserAddress extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -22,4 +22,4 @@ class States extends Model {
   }
 }
 
-export default States;
+export default UserAddress;
