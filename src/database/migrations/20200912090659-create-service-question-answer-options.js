@@ -7,6 +7,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      service_question_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'service_questions',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       discursive: {
         type: Sequelize.STRING,
         allowNull: false,

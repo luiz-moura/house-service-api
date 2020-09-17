@@ -7,6 +7,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      service_subcategory_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'service_subcategories',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       question: {
         type: Sequelize.STRING,
         allowNull: false,

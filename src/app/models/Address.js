@@ -5,6 +5,7 @@ class Address extends Model {
     super.init(
       {
         city_id: Sequelize.INTEGER,
+        user_id: Sequelize.INTEGER,
         street: Sequelize.STRING,
         neighborhood: Sequelize.STRING,
         complement: Sequelize.STRING,
@@ -21,6 +22,7 @@ class Address extends Model {
 
   static associate(models) {
     this.belongsTo(models.City, { foreignKey: 'city_id', as: 'city' });
+    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
   }
 }
 

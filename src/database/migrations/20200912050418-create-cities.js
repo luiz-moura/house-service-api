@@ -7,6 +7,16 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      state_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'states',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,

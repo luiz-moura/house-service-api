@@ -7,6 +7,26 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      city_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cities',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
+      user_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'cities',
+          key: 'id',
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       street: {
         type: Sequelize.STRING,
         allowNull: false,
