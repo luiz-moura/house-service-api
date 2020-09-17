@@ -2,6 +2,7 @@ import { Router } from 'express';
 import multer from 'multer';
 import multerConfig from './config/multer';
 
+import RoleController from './app/controllers/RoleController';
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
 import FileController from './app/controllers/FileController';
@@ -16,6 +17,11 @@ routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
+
+routes.get('/roles', RoleController.index);
+routes.post('/roles', RoleController.store);
+routes.put('/roles', RoleController.update);
+routes.delete('/roles', RoleController.delete);
 
 routes.put('/users', UserController.update);
 
