@@ -38,9 +38,23 @@ class RoleController {
     const { id } = request.params;
     const { name, display_name, status = 1 } = request.body;
 
+    const role = await Role.findByPk(id);
+
+    if (!role) {
+      return response.status(400).json({ error: 'Role does not exist' });
+    }
+
+    if (name !== role.name) {
+      const roleExists = await Role.findOne({ where: { name } });
+
+      if (roleExists) {
+        return response.status(400).json({ error: 'Role already exists.' });
+      }
+    }
+
     const schema = Yup.object().shape({
-      name: Yup.string().required(),
-      display_name: Yup.string().required(),
+      name: Yup.string(),
+      display_name: Yup.string(),
       status: Yup.boolean(),
     });
 
@@ -48,7 +62,7 @@ class RoleController {
       return response.status(400).json({ error: 'Validation fails' });
     }
 
-    await Role.update({ id, name, display_name, status }, { where: { id } });
+    await role.update({ name, display_name, status });
 
     return response.json({ id, name, display_name, status });
   }
