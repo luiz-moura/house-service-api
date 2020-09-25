@@ -3,8 +3,12 @@ import Role from '../models/Role';
 
 class RoleController {
   async index(request, response) {
+    const { page = 1 } = request.query;
+
     const roles = await Role.findAll({
       attributes: ['id', 'name', 'display_name', 'status'],
+      limit: 20,
+      offset: (page - 1) * 20,
     });
 
     return response.json(roles);
