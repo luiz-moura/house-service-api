@@ -7,6 +7,13 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      role_id: {
+        type: Sequelize.INTEGER,
+        references: { model: 'roles', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
+        allowNull: true,
+      },
       name: {
         type: Sequelize.STRING,
         allowNull: false,
