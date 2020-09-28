@@ -10,6 +10,8 @@ import ProviderController from './app/controllers/ProviderController';
 import StateController from './app/controllers/StateController';
 import CityController from './app/controllers/CityController';
 import AddressController from './app/controllers/AddressController';
+import ServiceCategoryController from './app/controllers/ServiceCategoryController';
+import ServiceSubcategoryController from './app/controllers/ServiceSubcategoryController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -32,6 +34,9 @@ routes.post('/roles', RoleController.store);
 routes.put('/roles/:id', RoleController.update);
 routes.delete('/roles/:id', RoleController.delete);
 
+/**
+ * Location
+ */
 routes.get('/states', StateController.index);
 routes.post('/states', StateController.store);
 routes.put('/states/:id', StateController.update);
@@ -46,5 +51,18 @@ routes.get('/adresses', AddressController.index);
 routes.post('/adresses', AddressController.store);
 routes.put('/adresses/:id', AddressController.update);
 routes.delete('/adresses/:id', AddressController.delete);
+
+/**
+ * Services
+ */
+routes.get('/categories', ServiceCategoryController.index);
+routes.post('/categories', ServiceCategoryController.store);
+routes.put('/categories/:id', ServiceCategoryController.update);
+routes.delete('/categories/:id', ServiceCategoryController.delete);
+
+routes.get('/subcategories', ServiceSubcategoryController.index);
+routes.post('/subcategories', ServiceSubcategoryController.store);
+routes.put('/subcategories/:id', ServiceSubcategoryController.update);
+routes.delete('/subcategories/:id', ServiceSubcategoryController.delete);
 
 export default routes;
