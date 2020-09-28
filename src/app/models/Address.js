@@ -19,11 +19,6 @@ class Address extends Model {
 
     return this;
   }
-
-  static associate(models) {
-    this.belongsTo(models.City, { foreignKey: 'city_id', as: 'city' });
-    this.belongsTo(models.User, { foreignKey: 'user_id', as: 'user' });
-  }
 }
 
 export default Address;
