@@ -6,10 +6,21 @@ import File from '../app/models/File';
 import State from '../app/models/State';
 import City from '../app/models/City';
 import Address from '../app/models/Address';
+import ServiceCategory from '../app/models/ServiceCategory';
+import ServiceSubcategory from '../app/models/ServiceSubcategory';
 
 import databaseConfig from '../config/database';
 
-const models = [User, Role, File, State, City, Address];
+const models = [
+  User,
+  Role,
+  File,
+  State,
+  City,
+  Address,
+  ServiceCategory,
+  ServiceSubcategory,
+];
 
 class Database {
   constructor() {
