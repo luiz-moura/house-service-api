@@ -20,7 +20,7 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'cities',
+          model: 'users',
           key: 'id',
         },
         onUpdate: 'CASCADE',
@@ -44,7 +44,7 @@ module.exports = {
         allowNull: false,
       },
       zip_code: {
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       created_at: {
