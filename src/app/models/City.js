@@ -4,9 +4,9 @@ class City extends Model {
   static init(sequelize) {
     super.init(
       {
+        state_id: Sequelize.INTEGER,
         name: Sequelize.STRING,
         status: Sequelize.BOOLEAN,
-        state_id: Sequelize.BOOLEAN,
       },
       {
         sequelize,
