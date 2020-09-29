@@ -4,6 +4,7 @@ import User from '../models/User';
 class UserController {
   async store(request, response) {
     const schema = Yup.object().shape({
+      role_id: Yup.number().required(),
       name: Yup.string().required(),
       genre: Yup.string().required(),
       status: Yup.boolean(),
@@ -25,8 +26,8 @@ class UserController {
 
     const {
       id,
+      role_id,
       name,
-      nickname,
       genre,
       provider,
       email,
@@ -35,8 +36,8 @@ class UserController {
 
     return response.json({
       id,
+      role_id,
       name,
-      nickname,
       email,
       genre,
       status,
@@ -46,6 +47,7 @@ class UserController {
 
   async update(request, response) {
     const schema = Yup.object().shape({
+      role_id: Yup.number(),
       name: Yup.string(),
       genre: Yup.string(),
       status: Yup.boolean(),
@@ -81,12 +83,13 @@ class UserController {
       return response.status(401).json({ error: 'Password does not match.' });
     }
 
-    const { id, name, genre, status, provider } = await user.update(
+    const { id, role_id, name, genre, status, provider } = await user.update(
       request.body
     );
 
     return response.json({
       id,
+      role_id,
       name,
       email,
       genre,

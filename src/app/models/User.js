@@ -5,6 +5,7 @@ class User extends Model {
   static init(sequelize) {
     super.init(
       {
+        role_id: Sequelize.INTEGER,
         name: Sequelize.STRING,
         genre: Sequelize.STRING,
         provider: Sequelize.BOOLEAN,
