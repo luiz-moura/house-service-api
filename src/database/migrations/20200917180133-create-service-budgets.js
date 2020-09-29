@@ -1,6 +1,6 @@
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('service_budget_request_files', {
+    return queryInterface.createTable('service_budgets', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -57,6 +57,6 @@ module.exports = {
   },
 
   down: async (queryInterface) => {
-    return queryInterface.dropTable('service_budget_request_files');
+    return queryInterface.dropTable('service_budgets');
   },
 };
