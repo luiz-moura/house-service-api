@@ -6,7 +6,7 @@ class ServiceQuestion extends Model {
       {
         service_subcategory_id: Sequelize.INTEGER,
         question: Sequelize.STRING,
-        order: Sequelize.STRING,
+        order: Sequelize.INTEGER,
         status: Sequelize.BOOLEAN,
       },
       {
