@@ -8,6 +8,7 @@ class UserController {
       name: Yup.string().required(),
       genre: Yup.string().required(),
       status: Yup.boolean(),
+      provider: Yup.boolean().required(),
       email: Yup.string().email().required(),
       password: Yup.string().required().min(6),
     });
@@ -51,6 +52,7 @@ class UserController {
       name: Yup.string(),
       genre: Yup.string(),
       status: Yup.boolean(),
+      provider: Yup.boolean(),
       email: Yup.string().email(),
       oldPassword: Yup.string().min(6),
       password: Yup.string()
