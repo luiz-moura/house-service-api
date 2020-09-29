@@ -10,6 +10,7 @@ import ServiceCategory from '../app/models/ServiceCategory';
 import ServiceSubcategory from '../app/models/ServiceSubcategory';
 import ServiceQuestion from '../app/models/ServiceQuestion';
 import ServiceQuestionAnswerOption from '../app/models/ServiceQuestionAnswerOption';
+import ServiceBudgetRequest from '../app/models/ServiceBudgetRequest';
 
 import databaseConfig from '../config/database';
 
@@ -24,6 +25,7 @@ const models = [
   ServiceSubcategory,
   ServiceQuestion,
   ServiceQuestionAnswerOption,
+  ServiceBudgetRequest,
 ];
 
 class Database {
