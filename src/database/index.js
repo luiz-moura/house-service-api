@@ -8,6 +8,8 @@ import City from '../app/models/City';
 import Address from '../app/models/Address';
 import ServiceCategory from '../app/models/ServiceCategory';
 import ServiceSubcategory from '../app/models/ServiceSubcategory';
+import ServiceQuestion from '../app/models/ServiceQuestion';
+import ServiceQuestionAnswerOption from '../app/models/ServiceQuestionAnswerOption';
 
 import databaseConfig from '../config/database';
 
@@ -20,6 +22,8 @@ const models = [
   Address,
   ServiceCategory,
   ServiceSubcategory,
+  ServiceQuestion,
+  ServiceQuestionAnswerOption,
 ];
 
 class Database {
