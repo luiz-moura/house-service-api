@@ -14,6 +14,7 @@ import ServiceCategoryController from './app/controllers/ServiceCategoryControll
 import ServiceSubcategoryController from './app/controllers/ServiceSubcategoryController';
 import ServiceQuestionController from './app/controllers/ServiceQuestionController';
 import ServiceQuestionAnswerOptionController from './app/controllers/ServiceQuestionAnswerOptionController';
+import ServiceBudgetRequestController from './app/controllers/ServiceBudgetRequestController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -25,12 +26,15 @@ routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
 
-routes.get('/users', UserController.index);
-routes.put('/users', UserController.update);
+routes.post('/files', upload.single('file'), FileController.store);
 
+/**
+ * Users
+ */
 routes.get('/providers', ProviderController.index);
 
-routes.post('/files', upload.single('file'), FileController.store);
+routes.get('/users', UserController.index);
+routes.put('/users', UserController.update);
 
 routes.get('/roles', RoleController.index);
 routes.post('/roles', RoleController.store);
@@ -87,5 +91,9 @@ routes.delete(
 /**
  * Budget
  */
+routes.get('/budget-request', ServiceBudgetRequestController.index);
+routes.post('/budget-request', ServiceBudgetRequestController.store);
+routes.put('/budget-request/:id', ServiceBudgetRequestController.update);
+routes.delete('/budget-request/:id', ServiceBudgetRequestController.delete);
 
 export default routes;
