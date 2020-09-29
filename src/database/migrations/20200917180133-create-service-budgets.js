@@ -28,7 +28,7 @@ module.exports = {
         allowNull: true,
       },
       price: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.NUMERIC,
         allowNull: false,
       },
       date_service: {
