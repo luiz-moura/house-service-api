@@ -12,6 +12,8 @@ import CityController from './app/controllers/CityController';
 import AddressController from './app/controllers/AddressController';
 import ServiceCategoryController from './app/controllers/ServiceCategoryController';
 import ServiceSubcategoryController from './app/controllers/ServiceSubcategoryController';
+import ServiceQuestionController from './app/controllers/ServiceQuestionController';
+import ServiceQuestionAnswerOptionController from './app/controllers/ServiceQuestionAnswerOptionController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -23,6 +25,7 @@ routes.post('/sessions', SessionController.store);
 
 routes.use(authMiddleware);
 
+routes.get('/users', UserController.index);
 routes.put('/users', UserController.update);
 
 routes.get('/providers', ProviderController.index);
@@ -35,7 +38,7 @@ routes.put('/roles/:id', RoleController.update);
 routes.delete('/roles/:id', RoleController.delete);
 
 /**
- * Location
+ * Locations
  */
 routes.get('/states', StateController.index);
 routes.post('/states', StateController.store);
@@ -53,7 +56,7 @@ routes.put('/adresses/:id', AddressController.update);
 routes.delete('/adresses/:id', AddressController.delete);
 
 /**
- * Services
+ * Categories
  */
 routes.get('/categories', ServiceCategoryController.index);
 routes.post('/categories', ServiceCategoryController.store);
@@ -64,5 +67,25 @@ routes.get('/subcategories', ServiceSubcategoryController.index);
 routes.post('/subcategories', ServiceSubcategoryController.store);
 routes.put('/subcategories/:id', ServiceSubcategoryController.update);
 routes.delete('/subcategories/:id', ServiceSubcategoryController.delete);
+
+/**
+ * Questions
+ */
+routes.get('/questions', ServiceQuestionController.index);
+routes.post('/questions', ServiceQuestionController.store);
+routes.put('/questions/:id', ServiceQuestionController.update);
+routes.delete('/questions/:id', ServiceQuestionController.delete);
+
+routes.get('/answer-option', ServiceQuestionAnswerOptionController.index);
+routes.post('/answer-option', ServiceQuestionAnswerOptionController.store);
+routes.put('/answer-option/:id', ServiceQuestionAnswerOptionController.update);
+routes.delete(
+  '/answer-option/:id',
+  ServiceQuestionAnswerOptionController.delete
+);
+
+/**
+ * Budget
+ */
 
 export default routes;
