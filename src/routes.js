@@ -15,6 +15,8 @@ import ServiceSubcategoryController from './app/controllers/ServiceSubcategoryCo
 import ServiceQuestionController from './app/controllers/ServiceQuestionController';
 import ServiceQuestionAnswerOptionController from './app/controllers/ServiceQuestionAnswerOptionController';
 import ServiceBudgetRequestController from './app/controllers/ServiceBudgetRequestController';
+import ServiceBudgetRequestAnswerController from './app/controllers/ServiceBudgetRequestAnswerController';
+import ServiceBudgetController from './app/controllers/ServiceBudgetController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -80,20 +82,42 @@ routes.post('/questions', ServiceQuestionController.store);
 routes.put('/questions/:id', ServiceQuestionController.update);
 routes.delete('/questions/:id', ServiceQuestionController.delete);
 
-routes.get('/answer-option', ServiceQuestionAnswerOptionController.index);
-routes.post('/answer-option', ServiceQuestionAnswerOptionController.store);
-routes.put('/answer-option/:id', ServiceQuestionAnswerOptionController.update);
+routes.get('/answer-options', ServiceQuestionAnswerOptionController.index);
+routes.post('/answer-options', ServiceQuestionAnswerOptionController.store);
+routes.put('/answer-options/:id', ServiceQuestionAnswerOptionController.update);
 routes.delete(
-  '/answer-option/:id',
+  '/answer-options/:id',
   ServiceQuestionAnswerOptionController.delete
 );
 
 /**
  * Budget
  */
-routes.get('/budget-request', ServiceBudgetRequestController.index);
-routes.post('/budget-request', ServiceBudgetRequestController.store);
-routes.put('/budget-request/:id', ServiceBudgetRequestController.update);
-routes.delete('/budget-request/:id', ServiceBudgetRequestController.delete);
+routes.get('/budget-requests', ServiceBudgetRequestController.index);
+routes.post('/budget-requests', ServiceBudgetRequestController.store);
+routes.put('/budget-requests/:id', ServiceBudgetRequestController.update);
+routes.delete('/budget-requests/:id', ServiceBudgetRequestController.delete);
+
+routes.get(
+  '/budget-request-answers',
+  ServiceBudgetRequestAnswerController.index
+);
+routes.post(
+  '/budget-request-answers',
+  ServiceBudgetRequestAnswerController.store
+);
+routes.put(
+  '/budget-request-answers/:id',
+  ServiceBudgetRequestAnswerController.update
+);
+routes.delete(
+  '/budget-request-answers/:id',
+  ServiceBudgetRequestAnswerController.delete
+);
+
+routes.get('/budgets', ServiceBudgetController.index);
+routes.post('/budgets', ServiceBudgetController.store);
+routes.put('/budgets/:id', ServiceBudgetController.update);
+routes.delete('/budgets/:id', ServiceBudgetController.delete);
 
 export default routes;
