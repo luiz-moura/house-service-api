@@ -5,7 +5,7 @@ class ServiceBudgetRequestAnswerController {
   async index(request, response) {
     const { page = 1 } = request.query;
 
-    const serviceBudgetRequestAnswer = await ServiceBudgetRequestAnswer.findAll(
+    const serviceBudgetRequestAnswers = await ServiceBudgetRequestAnswer.findAll(
       {
         attributes: [
           'id',
@@ -19,7 +19,7 @@ class ServiceBudgetRequestAnswerController {
       }
     );
 
-    return response.json(serviceBudgetRequestAnswer);
+    return response.json(serviceBudgetRequestAnswers);
   }
 
   async store(request, response) {
