@@ -5,13 +5,13 @@ class ServiceBudgetRequestController {
   async index(request, response) {
     const { page = 1 } = request.query;
 
-    const serviceBudgetRequest = await ServiceBudgetRequest.findAll({
+    const serviceBudgetRequests = await ServiceBudgetRequest.findAll({
       attributes: ['id', 'requester_id', 'service_subcategory_id', 'status'],
       limit: 20,
       offset: (page - 1) * 20,
     });
 
-    return response.json(serviceBudgetRequest);
+    return response.json(serviceBudgetRequests);
   }
 
   async store(request, response) {
