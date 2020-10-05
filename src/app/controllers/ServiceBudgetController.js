@@ -5,7 +5,7 @@ class ServiceBudgetController {
   async index(request, response) {
     const { page = 1 } = request.query;
 
-    const serviceBudget = await ServiceBudget.findAll({
+    const serviceBudgets = await ServiceBudget.findAll({
       attributes: [
         'id',
         'provider_id',
@@ -19,7 +19,7 @@ class ServiceBudgetController {
       offset: (page - 1) * 20,
     });
 
-    return response.json(serviceBudget);
+    return response.json(serviceBudgets);
   }
 
   async store(request, response) {
