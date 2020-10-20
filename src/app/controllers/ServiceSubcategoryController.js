@@ -6,7 +6,7 @@ class ServiceSubcategoryController {
     const { page = 1 } = request.query;
 
     const ServiceSubcategories = await ServiceSubcategory.findAll({
-      attributes: ['id', 'name', 'status'],
+      attributes: ['id', 'service_category_id', 'name', 'status'],
       limit: 20,
       offset: (page - 1) * 20,
     });
