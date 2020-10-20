@@ -1,5 +1,7 @@
 import * as Yup from 'yup';
 import ServiceBudget from '../models/ServiceBudget';
+import User from '../models/User';
+import File from '../models/File';
 
 class ServiceBudgetController {
   async index(request, response) {
@@ -14,6 +16,20 @@ class ServiceBudgetController {
         'date_service',
         'accepted',
         'status',
+      ],
+      include: [
+        {
+          model: User,
+          as: 'provider',
+          attributes: ['name', 'status', 'genre', 'provider', 'avatar_id'],
+          include: [
+            {
+              model: File,
+              as: 'avatar',
+              attributes: ['name', 'path', 'url'],
+            },
+          ],
+        },
       ],
       limit: 20,
       offset: (page - 1) * 20,

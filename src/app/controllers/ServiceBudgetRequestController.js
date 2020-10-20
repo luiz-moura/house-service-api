@@ -6,7 +6,16 @@ class ServiceBudgetRequestController {
     const { page = 1 } = request.query;
 
     const serviceBudgetRequests = await ServiceBudgetRequest.findAll({
-      attributes: ['id', 'requester_id', 'service_subcategory_id', 'status'],
+      attributes: [
+        'id',
+        'requester_id',
+        'service_subcategory_id',
+        'status',
+        'date_service',
+        'canceled_at',
+        'created_at',
+        'updated_at',
+      ],
       limit: 20,
       offset: (page - 1) * 20,
     });
@@ -23,6 +32,7 @@ class ServiceBudgetRequestController {
     const schema = Yup.object().shape({
       service_subcategory_id: Yup.number().required(),
       status: Yup.boolean(),
+      date_service: Yup.date().required(),
     });
 
     if (!(await schema.isValid(serviceBudgetRequest))) {
@@ -34,6 +44,7 @@ class ServiceBudgetRequestController {
       requester_id,
       service_subcategory_id,
       status,
+      date_service,
     } = await ServiceBudgetRequest.create(serviceBudgetRequest);
 
     return response.json({
