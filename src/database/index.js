@@ -13,6 +13,7 @@ import ServiceQuestionAnswerOption from '../app/models/ServiceQuestionAnswerOpti
 import ServiceBudgetRequest from '../app/models/ServiceBudgetRequest';
 import ServiceBudgetRequestAnswer from '../app/models/ServiceBudgetRequestAnswer';
 import ServiceBudget from '../app/models/ServiceBudget';
+import ServiceBudgetRequestFile from '../app/models/ServiceBudgetRequestFile';
 
 import databaseConfig from '../config/database';
 
@@ -30,6 +31,7 @@ const models = [
   ServiceBudgetRequest,
   ServiceBudgetRequestAnswer,
   ServiceBudget,
+  ServiceBudgetRequestFile,
 ];
 
 class Database {
