@@ -14,6 +14,7 @@ import ServiceBudgetRequest from '../app/models/ServiceBudgetRequest';
 import ServiceBudgetRequestAnswer from '../app/models/ServiceBudgetRequestAnswer';
 import ServiceBudget from '../app/models/ServiceBudget';
 import ServiceBudgetRequestFile from '../app/models/ServiceBudgetRequestFile';
+import ServiceBudgetRequestDescription from '../app/models/ServiceBudgetRequestDescription';
 
 import databaseConfig from '../config/database';
 
@@ -32,6 +33,7 @@ const models = [
   ServiceBudgetRequestAnswer,
   ServiceBudget,
   ServiceBudgetRequestFile,
+  ServiceBudgetRequestDescription,
 ];
 
 class Database {
