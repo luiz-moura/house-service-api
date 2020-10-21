@@ -32,6 +32,10 @@ module.exports = {
         defaultValue: true,
         allowNull: false,
       },
+      date_service: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -39,6 +43,10 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
+      },
+      canceled_at: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
     });
   },

@@ -7,6 +7,7 @@ class ServiceBudgetRequest extends Model {
         requester_id: Sequelize.INTEGER,
         service_subcategory_id: Sequelize.INTEGER,
         status: Sequelize.BOOLEAN,
+        date_service: Sequelize.DATE,
       },
       {
         sequelize,
