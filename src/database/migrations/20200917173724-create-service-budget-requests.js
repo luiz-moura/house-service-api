@@ -27,6 +27,11 @@ module.exports = {
         onDelete: 'SET NULL',
         allowNull: true,
       },
+      payment_method: {
+        type: Sequelize.INTEGER,
+        defaultValue: 1,
+        allowNull: false,
+      },
       status: {
         type: Sequelize.BOOLEAN,
         defaultValue: true,
