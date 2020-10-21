@@ -18,6 +18,7 @@ import ServiceBudgetRequestController from './app/controllers/ServiceBudgetReque
 import ServiceBudgetRequestAnswerController from './app/controllers/ServiceBudgetRequestAnswerController';
 import ServiceBudgetController from './app/controllers/ServiceBudgetController';
 import ServiceBudgetRequestFileController from './app/controllers/ServiceBudgetRequestFileController';
+import ServiceBudgetRequestDescriptionController from './app/controllers/ServiceBudgetRequestDescriptionController';
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -130,6 +131,23 @@ routes.put(
 routes.delete(
   '/budgets-request-files/:id',
   ServiceBudgetRequestFileController.delete
+);
+
+routes.get(
+  '/budget-request-descriptions',
+  ServiceBudgetRequestDescriptionController.index
+);
+routes.post(
+  '/budget-request-descriptions',
+  ServiceBudgetRequestDescriptionController.store
+);
+routes.put(
+  '/budget-request-descriptions/:id',
+  ServiceBudgetRequestDescriptionController.update
+);
+routes.delete(
+  '/budget-request-descriptions/:id',
+  ServiceBudgetRequestDescriptionController.delete
 );
 
 export default routes;
