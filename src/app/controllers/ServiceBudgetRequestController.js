@@ -10,6 +10,7 @@ class ServiceBudgetRequestController {
         'id',
         'requester_id',
         'service_subcategory_id',
+        'payment_method',
         'status',
         'date_service',
         'canceled_at',
@@ -31,8 +32,9 @@ class ServiceBudgetRequestController {
 
     const schema = Yup.object().shape({
       service_subcategory_id: Yup.number().required(),
-      status: Yup.boolean(),
       date_service: Yup.date().required(),
+      payment_method: Yup.number().required(),
+      status: Yup.boolean(),
     });
 
     if (!(await schema.isValid(serviceBudgetRequest))) {
@@ -43,21 +45,29 @@ class ServiceBudgetRequestController {
       id,
       requester_id,
       service_subcategory_id,
-      status,
       date_service,
+      payment_method,
+      status,
     } = await ServiceBudgetRequest.create(serviceBudgetRequest);
 
     return response.json({
       id,
       requester_id,
       service_subcategory_id,
+      date_service,
+      payment_method,
       status,
     });
   }
 
   async update(request, response) {
     const { id } = request.params;
-    const { service_subcategory_id, status } = request.body;
+    const {
+      service_subcategory_id,
+      date_service,
+      payment_method,
+      status,
+    } = request.body;
     const requester_id = request.userId;
 
     const serviceBudgetRequest = await ServiceBudgetRequest.findByPk(id);
@@ -70,6 +80,8 @@ class ServiceBudgetRequestController {
 
     const schema = Yup.object().shape({
       service_subcategory_id: Yup.number(),
+      date_service: Yup.date().required(),
+      payment_method: Yup.number(),
       status: Yup.boolean(),
     });
 
@@ -80,6 +92,8 @@ class ServiceBudgetRequestController {
     await serviceBudgetRequest.update({
       requester_id,
       service_subcategory_id,
+      date_service,
+      payment_method,
       status,
     });
 
@@ -87,6 +101,8 @@ class ServiceBudgetRequestController {
       id,
       requester_id,
       service_subcategory_id,
+      date_service,
+      payment_method,
       status,
     });
   }
