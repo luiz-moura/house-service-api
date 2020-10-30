@@ -33,7 +33,7 @@ class ServiceBudgetRequestController {
     const schema = Yup.object().shape({
       service_subcategory_id: Yup.number().required(),
       date_service: Yup.date().required(),
-      payment_method: Yup.number().required(),
+      // payment_method: Yup.number().required(),
       status: Yup.boolean(),
     });
 
