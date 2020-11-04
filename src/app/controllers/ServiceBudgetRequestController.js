@@ -46,7 +46,7 @@ class ServiceBudgetRequestController {
       requester_id,
       service_subcategory_id,
       date_service,
-      payment_method,
+      // payment_method,
       status,
     } = await ServiceBudgetRequest.create(serviceBudgetRequest);
 
@@ -55,7 +55,7 @@ class ServiceBudgetRequestController {
       requester_id,
       service_subcategory_id,
       date_service,
-      payment_method,
+      // payment_method,
       status,
     });
   }
@@ -65,7 +65,7 @@ class ServiceBudgetRequestController {
     const {
       service_subcategory_id,
       date_service,
-      payment_method,
+      // payment_method,
       status,
     } = request.body;
     const requester_id = request.userId;
