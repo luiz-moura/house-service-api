@@ -38,7 +38,7 @@ class ServiceBudgetRequestController {
     });
 
     if (!(await schema.isValid(serviceBudgetRequest))) {
-      return response.status(400).json({ error: 'Validation fails' });
+      return response.status(400).json({ error: 'erro de validação' });
     }
 
     const {
