@@ -12,7 +12,7 @@ class SessionController {
     });
 
     if (!(await schema.isValid(request.body))) {
-      return response.status(400).json({ error: 'Validation fails' });
+      return response.status(400).json({ error: 'preencha os campos' });
     }
 
     const { email, password } = request.body;
@@ -20,11 +20,11 @@ class SessionController {
     const user = await User.findOne({ where: { email } });
 
     if (!user) {
-      return response.status(401).json({ error: 'User not found' });
+      return response.status(401).json({ error: 'usuário não encontrado' });
     }
 
     if (!(await user.checkPassword(password))) {
-      return response.status(401).json({ error: 'Password does not match ' });
+      return response.status(401).json({ error: 'Senha incorreta ' });
     }
 
     const { id, name, provider } = user;
