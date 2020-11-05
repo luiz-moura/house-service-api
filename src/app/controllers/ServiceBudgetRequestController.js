@@ -93,7 +93,7 @@ class ServiceBudgetRequestController {
       requester_id,
       service_subcategory_id,
       date_service,
-      payment_method,
+      // payment_method,
       status,
     });
 
@@ -102,7 +102,7 @@ class ServiceBudgetRequestController {
       requester_id,
       service_subcategory_id,
       date_service,
-      payment_method,
+      // payment_method,
       status,
     });
   }
